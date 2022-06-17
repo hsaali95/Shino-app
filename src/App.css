@@ -27,6 +27,23 @@
 .App-link {
   color: #61dafb;
 }
+/* .css-46bh2p-MuiCardContent-root:last-child{
+ padding: 7.5px 7.5px 7.5px 7.5px !important;
+} */
+.css-1z083mc-MuiGrid-root{
+  margin-top: 10px !important;
+}
+/*   */
+.css-1wllhil-MuiButtonBase-root-MuiIconButton-root{
+  padding: 0px;
+}
+.css-1wllhil-MuiButtonBase-root-MuiIconBut{
+  margin-right: 0px;
+}
+
+.css-1jgsq37-MuiDrawer-docked{
+  width: 15px !important;
+}
 
 @keyframes App-logo-spin {
   from {
