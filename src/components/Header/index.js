@@ -15,52 +15,72 @@ import AdbIcon from "@mui/icons-material/Adb";
 import AccountBalanceWalletIcon from "@mui/icons-material/AccountBalanceWallet";
 import ShinoLogo from "../../assets/icons/shinologo.jpg";
 import PersistentDrawerRight from "../Drawer";
+import { useNavigate } from "react-router-dom";
 
-const pages = [
-  "STACK",
-  "BUYSHIND",
-  "TOKENOMICS",
-  "GITBOOK",
-  "ROADMAP",
-  "CONTACT",
-];
-
+// const pages = [
+//   "STACK",
+//   "BUYSHIND",
+//   "TOKENOMICS",
+//   "GITBOOK",
+//   "ROADMAP",
+//   "CONTACT",
+// ];
 
 const MainNav = () => {
-  const [open, setOpen] = React.useState(false);
-
-  const handleDrawerOpen = () => {
-    setOpen(true);
-  };
-
-  const handleDrawerClose = () => {
-    setOpen(false);
-  };
-
- 
+  const navigate = useNavigate()
+  const pages = [
+    {
+      text:"STACK",
+      path:"/"
+    },
+    {
+      text:"BUYSHIND",
+      path:"/Buyshino"
+    },
+    {
+      text:"TOKENOMICS",
+      path:"/"
+    },
+    {
+      text:"GITBOOK",
+      path:"/"
+    },
+    {
+      text:"ROADMAP",
+      path:"/"
+    },
+    {
+      text:"CONTACT",
+      path:"/"
+    },
+  ]
 
   return (
     <AppBar position="static" sx={{ backgroundColor: "#252634" }}>
-      <Container >
-        <Toolbar disableGutters sx={{ height: "96px",display:"flex",justifyContent:"space-between" }}>
+      <Container>
+        <Toolbar
+          disableGutters
+          sx={{
+            height: "96px",
+            display: "flex",
+            justifyContent: "space-between",
+          }}
+        >
           {/* <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} /> */}
           <Box
             component="div"
             sx={{
               mr: 2,
-              
 
-              marginLeft:{xs:"0px",sm:"50px"},
-              backgroundColor: "#b02922",
+              marginLeft: { xs: "0px", sm: "50px" },
+              backgroundColor:"rgb(176, 41, 34)",
             }}
           >
             <img src={ShinoLogo} height="87px" />
           </Box>
 
-          <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
-           
-          </Box>
-          
+          <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}></Box>
+
           {/* nav link */}
           <Box
             sx={{
@@ -71,25 +91,25 @@ const MainNav = () => {
           >
             {pages.map((page) => (
               <Button
-                key={page}
-                
+                key={Math.random()}
                 sx={{
                   my: 2,
                   color: "#fff",
                   display: "block",
                   fontSize: "14px",
                   fontWeight: "700px",
-                  paddingRight:"41px"
+                  paddingRight: "41px",
                 }}
+                onClick={()=>navigate(page.path)}
               >
-                {page}
+                {page.text}
               </Button>
             ))}
           </Box>
 
           <Box>
             <Tooltip title="Open settings">
-              <Box component={"div"} sx={{display:"flex"}}>
+              <Box component={"div"} sx={{ display: "flex" }}>
                 <Button
                   variant="contained"
                   sx={{
@@ -98,9 +118,9 @@ const MainNav = () => {
                     color: "#252634",
                     borderWidth: "1px",
                     padding: "10px 20px",
-                    marginRight:"66px",
+                    marginRight: "66px",
                     fontFamily: "var(--font-family-heading)",
-                    display:{xs:"none",sm:"flex"}
+                    display: { xs: "none", sm: "flex" },
                   }}
                   startIcon={<AccountBalanceWalletIcon />}
                 >
@@ -108,13 +128,19 @@ const MainNav = () => {
                 </Button>
 
                 {/* <Button onClick={handleDrawerOpen}>open</Button> */}
-                <Box sx={{display:{lg:"none"},border:"1px solid #b02922",textAlign:"center"}}>
-
-                <Box><PersistentDrawerRight/></Box>
+                <Box
+                  sx={{
+                    display: { lg: "none" },
+                    border: "1px solid #b02922",
+                    textAlign: "center",
+                  }}
+                >
+                  <Box>
+                    <PersistentDrawerRight />
+                  </Box>
                 </Box>
               </Box>
             </Tooltip>
-            
           </Box>
         </Toolbar>
       </Container>

@@ -80,21 +80,16 @@ export default function PersistentDrawerRight() {
 
   return (
     <Box sx={{ display: "flex" }}>
-      
+      <IconButton
+        aria-label="open drawer"
+        edge="end"
+        onClick={handleDrawerOpen}
+        sx={{ ...(open && { display: "none" }), color: "rgb(176, 41, 34)" }}
+      >
+        <MenuIcon />
+      </IconButton>
 
-      
-        <IconButton
-          
-          aria-label="open drawer"
-          edge="end"
-          onClick={handleDrawerOpen}
-          sx={{ ...(open && { display: "none" }) ,color :"rgb(176, 41, 34)"}}
-        >
-          <MenuIcon />
-        </IconButton>
-      
-
-      <Main open={open} sx={{display:{xs:"none"}}}>
+      <Main open={open} sx={{ display: { xs: "none" } }}>
         {/* <DrawerHeader /> */}
       </Main>
       <Drawer
